@@ -21,8 +21,7 @@ var connection = mysql.createConnection({
     });
 
     function runSearch() {
-        inquirer
-        .prompt({
+        inquirer.prompt({
             name: 
             type:
             message:
