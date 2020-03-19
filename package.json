@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/helenmasch/bamazon#readme",
   "dependencies": {
+    "console.table": "^0.10.0",
     "inquirer": "^7.1.0",
-    "my-sql": "^1.2.15"
+    "my-sql": "^1.2.15",
+    "mysql": "^2.18.1"
   }
 }
