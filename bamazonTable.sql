@@ -32,6 +32,15 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("t-shirt", "womens clothing", 22.50, 50);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("iphone", "electronics", 500, 60);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("ice cream", "desserts", 4.50, 45);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("sneakers", "womens shoes", 22.50, 50);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("gold ring", "jewelry", 500, 20);
 
 SELECT * FROM products;
