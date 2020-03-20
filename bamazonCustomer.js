@@ -25,11 +25,8 @@ function readProducts() {
     connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
 
-        // Log results of the SELECT statement
-        console.log(res);
-
         console.table(res)
-      runSearch()
+        runSearch()
         // connection.end();
     })
 }
@@ -40,18 +37,27 @@ function runSearch() {
         message: "What is the ID of the product you would like to buy?",
         name: "itemID"
     },
-        {
-            type: "input",
-            message: "How many units do you want to buy?",
-            name: "units"
-        }
+    {
+        type: "input",
+        message: "How many units do you want to buy?",
+        name: "units"
+    }
     ]).then(function (data) {
-        console.log(data)
-        connection.query("SELECT * FROM products WHERE id ="+ data.itemID, function(err, results){
+        connection.query("SELECT * FROM products WHERE id =" + data.itemID, function (err, results) {
             console.table(results)
-            var newQuantity = results[0].stock_quantity - data.units
-            
-            connection.query("UPDATE * SET products WHERE id ")
+
+            if (data.units <= results[0].stock_quantity) {
+
+                var newQuantity = results[0].stock_quantity - data.units
+
+                connection.query(`UPDATE products SET stock_quantity = ${newQuantity} WHERE id = ${data.itemID}`, function (err, results) {
+                    readProducts()
+                })
+            }
+            else {
+                console.log("Insufficient Quantity")
+                readProducts()
+            }
 
         })
     })
